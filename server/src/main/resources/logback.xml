@@ -96,8 +96,15 @@
             <charset>UTF-8</charset>
         </encoder>
     </appender>
-
-    <root level="INFO">
+<!--
+    <logger name="com.alibaba.druid.filter.stat.StatFilter" level="TRACE">
+    </logger>
+    <logger name="druid.sql.Statement" level="debug">
+    </logger>
+-->
+    <logger name="MySQL" level="TRACE"/>
+    <logger name="druid.sql.Statement" level="debug"/>
+    <root level="debug">
         <appender-ref ref="ALL"/>
         <appender-ref ref="WARN"/>
         <appender-ref ref="ERROR"/>

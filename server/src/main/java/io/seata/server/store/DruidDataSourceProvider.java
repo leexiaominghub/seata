@@ -20,6 +20,7 @@ import io.seata.common.loader.LoadLevel;
 import io.seata.core.store.db.AbstractDataSourceProvider;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 
 /**
  * The druid datasource provider
@@ -50,6 +51,12 @@ public class DruidDataSourceProvider extends AbstractDataSourceProvider {
         ds.setMaxPoolPreparedStatementPerConnectionSize(20);
         ds.setValidationQuery(getValidationQuery(getDBType()));
         ds.setDefaultAutoCommit(true);
+        try {
+            ds.setFilters("stat,wall,slf4j");
+        } catch (SQLException throwables) {
+            System.out.println("setFilters error");
+            throwables.printStackTrace();
+        }
         return ds;
     }
 }

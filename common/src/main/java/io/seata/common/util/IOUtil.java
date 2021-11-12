@@ -15,6 +15,8 @@
  */
 package io.seata.common.util;
 
+import java.sql.PreparedStatement;
+
 /**
  * @author jsbxyyx
  */
